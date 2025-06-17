@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\Pasien\JanjiPeriksaController;
 use App\Http\Controllers\ProfileController;
+use App\Models\JanjiPeriksa;
 use Illuminate\Support\Facades\Route;
+
+use function PHPUnit\Framework\callback;
 
 Route::get('/', function () {
     return view('welcome');

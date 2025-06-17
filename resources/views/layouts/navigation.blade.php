@@ -25,11 +25,20 @@
                             {{ __('Obat') }}
                             </x-nav-link>
                             <x-nav-link :href="route('dokter.JadwalPeriksa.index')" :active="request()->routeIs('dokter.JadwalPeriksa.index')">
-                            {{ __('Master Jadwal Periksa') }}
+                            {{ __('Jadwal Periksa') }}
+                            </x-nav-link>
+                              <x-nav-link :href="route('dokter.memeriksa.index')" :active="request()->routeIs('dokter.memeriksa.index')">
+                            {{ __('Memeriksa') }}
                             </x-nav-link>
                     @elseif(Auth::user()->role == 'pasien')
                             <x-nav-link :href="route('pasien.dashboard')" :active="request()->routeIs('pasien.dashboard')">
                                 {{ __('Dashboard') }}
+                            </x-nav-link>
+                             <x-nav-link :href="route('pasien.janji-periksa.index')" :active="request()->routeIs('pasien.janji-periksa.index')">
+                                {{ __('Janji periksa') }}
+                            </x-nav-link>
+                            <x-nav-link :href="route('pasien.riwayat-periksa.index')" :active="request()->routeIs('pasien.riwayat-periksa.index')">
+                                {{ __('Riwayat Periksa') }}
                             </x-nav-link>
                     @endif
                 </div>
@@ -91,6 +100,9 @@
             @elseif(Auth::user()->role == 'pasien')
                 <x-responsive-nav-link :href="route('pasien.dashboard')" :active="request()->routeIs('pasien.dashboard')">
                     {{ __('Dashboard') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('pasien.janji-periksa.index')" :active="request()->routeIs('pasien.janji-periksa.index')">
+                    {{ __('Janji Periksa') }}
                 </x-responsive-nav-link>
             @endif
         </div>

@@ -3,7 +3,7 @@
 use App\Http\Controllers\Dokter\ObatController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dokter\JadwalPeriksaController;
-
+use App\Http\Controllers\Dokter\MemeriksaController;
 
 Route::middleware(['auth', 'role:dokter'])->prefix('dokter')->group(function () {
     Route::get('/dashboard', function () {
@@ -27,6 +27,14 @@ Route::middleware(['auth', 'role:dokter'])->prefix('dokter')->group(function () 
         Route::put('/{id}', [JadwalPeriksaController::class, 'update'])->name('dokter.JadwalPeriksa.update');
         Route::delete('/{id}', [JadwalPeriksaController::class, 'delete'])->name('dokter.JadwalPeriksa.delete');
         Route::patch('/{id}/toggle-status', [JadwalPeriksaController::class, 'toggleStatus'])->name('dokter.JadwalPeriksa.toggleStatus');
+
+    });
+    Route::prefix('memeriksa')->group(function () {
+        Route::get('/', [MemeriksaController::class, 'index'])->name('dokter.memeriksa.index');
+        Route::delete('/{id}', [MemeriksaController::class, 'destroy'])->name('dokter.memeriksa.destroy');
+        Route::get('/{id}/create', [MemeriksaController::class, 'create'])->name('dokter.memeriksa.create');
+        Route::post('/{janjiPeriksaId}', [MemeriksaController::class, 'store'])->name('dokter.memeriksa.store');
+
 
     });
 });

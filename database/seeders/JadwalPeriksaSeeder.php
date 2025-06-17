@@ -11,26 +11,102 @@ class JadwalPeriksaSeeder extends Seeder
 {
     public function run(): void
     {
-        // Ambil satu dokter pertama
-        $dokter = User::where('role', 'dokter')->first();
-        
+       $dokters = User::where('role', 'dokter')->get();
+
         $jadwals = [
+            // Dr. Ahmad Santoso (Poli Umum)
             [
-                'id_dokter' => $dokter->id,
+                'id_dokter' => $dokters[0]->id,
                 'hari' => 'Senin',
                 'jam_mulai' => '08:00:00',
                 'jam_selesai' => '12:00:00',
-                'status' => true,
+                'status' => true
             ],
             [
-                'id_dokter' => $dokter->id,
+                'id_dokter' => $dokters[0]->id,
+                'hari' => 'Rabu',
+                'jam_mulai' => '14:00:00',
+                'jam_selesai' => '18:00:00',
+                'status' => false
+            ],
+            [
+                'id_dokter' => $dokters[0]->id,
+                'hari' => 'Jumat',
+                'jam_mulai' => '08:00:00',
+                'jam_selesai' => '12:00:00',
+                'status' => false
+            ],
+
+            // Dr. Sarah Wijaya (Poli Anak)
+            [
+                'id_dokter' => $dokters[1]->id,
+                'hari' => 'Selasa',
+                'jam_mulai' => '09:00:00',
+                'jam_selesai' => '13:00:00',
+                'status' => false
+            ],
+            [
+                'id_dokter' => $dokters[1]->id,
+                'hari' => 'Kamis',
+                'jam_mulai' => '15:00:00',
+                'jam_selesai' => '19:00:00',
+                'status' => true
+            ],
+            [
+                'id_dokter' => $dokters[1]->id,
+                'hari' => 'Sabtu',
+                'jam_mulai' => '08:00:00',
+                'jam_selesai' => '12:00:00',
+                'status' => false
+            ],
+
+            // Dr. Budi Hartono (Poli Kandungan)
+            [
+                'id_dokter' => $dokters[2]->id,
+                'hari' => 'Senin',
+                'jam_mulai' => '14:00:00',
+                'jam_selesai' => '18:00:00',
+                'status' => false
+            ],
+            [
+                'id_dokter' => $dokters[2]->id,
+                'hari' => 'Rabu',
+                'jam_mulai' => '08:00:00',
+                'jam_selesai' => '12:00:00',
+                'status' => true
+            ],
+            [
+                'id_dokter' => $dokters[2]->id,
                 'hari' => 'Jumat',
                 'jam_mulai' => '14:00:00',
-                'jam_selesai' => '17:00:00',
-                'status' => false,
+                'jam_selesai' => '18:00:00',
+                'status' => false
             ],
+
+            // Dr. Maya Sari (Poli Mata)
+            [
+                'id_dokter' => $dokters[3]->id,
+                'hari' => 'Selasa',
+                'jam_mulai' => '14:00:00',
+                'jam_selesai' => '18:00:00',
+                'status' => false
+            ],
+            [
+                'id_dokter' => $dokters[3]->id,
+                'hari' => 'Kamis',
+                'jam_mulai' => '08:00:00',
+                'jam_selesai' => '12:00:00',
+                'status' => false
+            ],
+            [
+                'id_dokter' => $dokters[3]->id,
+                'hari' => 'Sabtu',
+                'jam_mulai' => '14:00:00',
+                'jam_selesai' => '18:00:00',
+                'status' => true
+            ]
         ];
-        
+
         foreach ($jadwals as $jadwal) {
             JadwalPeriksa::create($jadwal);
         }
