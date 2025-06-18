@@ -22,7 +22,7 @@ return new class extends Migration {
             $table->string('no_ktp')->nullable();
             $table->string('no_hp')->nullable();
             $table->string('no_rm')->nullable();
-            $table->string('poli')->nullable();
+           $table->foreignId('poli_id')->nullable()->constrained('poli')->onDelete('set null');
             $table->rememberToken();
             $table->timestamps();
 

@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
-    public function run(): void
+     public function run(): void
     {
-                // Data Dokter
+        // Data Dokter
         $dokters = [
             [
                 'role' => 'dokter',
@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
                 'alamat' => 'Jl. Sudirman No. 123, Jakarta',
                 'no_ktp' => '3171234567890001',
                 'no_hp' => '081234567890',
-                'poli' => 'Poli Umum'
+                'poli_id' => 4,
             ],
             [
                 'role' => 'dokter',
@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
                 'alamat' => 'Jl. Thamrin No. 456, Jakarta',
                 'no_ktp' => '3171234567890002',
                 'no_hp' => '081234567891',
-                'poli' => 'Poli Anak'
+                'poli_id' => 1,
             ],
             [
                 'role' => 'dokter',
@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
                 'alamat' => 'Jl. Gatot Subroto No. 789, Jakarta',
                 'no_ktp' => '3171234567890003',
                 'no_hp' => '081234567892',
-                'poli' => 'Poli Kandungan'
+                'poli_id' => 2,
             ],
             [
                 'role' => 'dokter',
@@ -51,7 +51,7 @@ class UserSeeder extends Seeder
                 'alamat' => 'Jl. Kuningan No. 321, Jakarta',
                 'no_ktp' => '3171234567890004',
                 'no_hp' => '081234567893',
-                'poli' => 'Poli Mata'
+                'poli_id' => 3,
             ]
         ];
 
@@ -69,7 +69,7 @@ class UserSeeder extends Seeder
                 'alamat' => 'Jl. Kebon Jeruk No. 12, Jakarta Barat',
                 'no_ktp' => '3171234567890101',
                 'no_hp' => '082345678901',
-                'poli' => null
+                'poli_id' => null
             ],
             [
                 'role' => 'pasien',
@@ -79,7 +79,7 @@ class UserSeeder extends Seeder
                 'alamat' => 'Jl. Cempaka Putih No. 34, Jakarta Pusat',
                 'no_ktp' => '3171234567890102',
                 'no_hp' => '082345678902',
-                'poli' => null
+                'poli_id' => null
             ],
             [
                 'role' => 'pasien',
@@ -89,7 +89,7 @@ class UserSeeder extends Seeder
                 'alamat' => 'Jl. Tanah Abang No. 56, Jakarta Pusat',
                 'no_ktp' => '3171234567890103',
                 'no_hp' => '082345678903',
-                'poli' => null
+                'poli_id' => null
             ],
             [
                 'role' => 'pasien',
@@ -99,7 +99,7 @@ class UserSeeder extends Seeder
                 'alamat' => 'Jl. Menteng No. 78, Jakarta Pusat',
                 'no_ktp' => '3171234567890104',
                 'no_hp' => '082345678904',
-                'poli' => null
+                'poli_id' => null
             ],
             [
                 'role' => 'pasien',
@@ -109,7 +109,7 @@ class UserSeeder extends Seeder
                 'alamat' => 'Jl. Kemang No. 90, Jakarta Selatan',
                 'no_ktp' => '3171234567890105',
                 'no_hp' => '082345678905',
-                'poli' => null
+                'poli_id' => null
             ]
         ];
 

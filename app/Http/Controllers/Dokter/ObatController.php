@@ -23,9 +23,11 @@ class ObatController extends Controller
 
     public function edit($id)
     {
-        $obat = Obat::find($id);
+        // $obat = Obat::find($id);
+        $obat = Obat::withTrashed()->findOrFail($id);
         return view('dokter.obat.edit')->with([
             'obat' => $obat,
+
         ]);
     }
 
@@ -54,7 +56,8 @@ class ObatController extends Controller
             'harga'     => 'required|numeric|min:0',
         ]);
 
-        $obat = Obat::find($id);
+        $obat = Obat::withTrashed()->findOrFail($id);
+
         $obat->update([
             'nama_obat' => $request->nama_obat,
             'kemasan'   => $request->kemasan,
@@ -70,5 +73,23 @@ class ObatController extends Controller
         $obat->delete();
 
         return redirect()->route('dokter.obat.index');
+    }
+
+    public function recycle()
+    {
+        $obats = Obat::onlyTrashed()->get();
+        return view('dokter.obat.restore')->with([
+            'obats' => $obats,
+        ]);
+    }
+
+    public function restore($id)
+    {
+        $obat = Obat::withTrashed()->find($id);
+        if ($obat) {
+            $obat->restore();
+            return redirect()->route('dokter.obat.index')->with('status', 'obat-restored');
+        }
+        return redirect()->route('dokter.obat.index')->with('error', 'obat-not-found');
     }
 }

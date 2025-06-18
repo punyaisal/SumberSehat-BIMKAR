@@ -34,7 +34,7 @@
                                     @foreach ($dokters as $dokter)
                                         @foreach ($dokter->jadwalPeriksas as $jadwal)
                                             <option value="{{ $jadwal->id }}"> {{ $dokter->name }} - Poli :
-                                                {{ $dokter->poli }} | {{ $jadwal->hari }},
+                                                {{ $dokter->poli->name}} | {{ $jadwal->hari }},
                                                 {{ $jadwal->jam_mulai }} -
                                                 {{ $jadwal->jam_selesai }}
                                             </option>
